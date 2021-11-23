@@ -100,8 +100,11 @@ var Tables={
               ],
               dom: 'Bfrtip',
                 buttons: [
-                    'copyHtml5',
-                    'excelHtml5',
+                    'copyHtml5', 
+                    {
+                        extend: 'excelHtml5',
+                        title: 'DataMega'
+                    },
                     'csvHtml5',
                     'pdfHtml5'
                 ]
