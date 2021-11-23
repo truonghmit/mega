@@ -151,13 +151,14 @@ $(document).ready(function() {
             $('#Find').attr("hidden", true);
             var result = ObjNhanVienIn[Math.floor(Math.random()*ObjNhanVienIn.length)];
             const index = ObjNhanVienIn.indexOf(result);
+
             $('#NumberRan').html(pad(Number(result.STT))) 
-            var NameOut = result.STT + ' - ' + result.MaNV + ' - '+ result.HOVATEN;
+            var indexOut =ObjNhanVienSelect.length +1; 
+            var NameOut ="Lượt:"+indexOut+ "👉"+ result.STT + ' - ' + result.MaNV + ' - '+ result.HOVATEN;
             $('#NameOut').html(NameOut);
 
-
-            ObjNhanVienIn.splice(index, 1); 
-            result.STT = ObjNhanVienSelect.length +1;
+            result.STT = indexOut;
+            ObjNhanVienIn.splice(index, 1);  
             ObjNhanVienSelect.push(result);
           
             console.log(' - '+result); 
