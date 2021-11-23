@@ -70,9 +70,7 @@
               <h1 class="mb-4 display-3 fw-bold lh-sm">Upload File Danh sách</h1>
               <p class="mt-3 mb-4 fs-1">Chọn file Excell theo quy định</p>
               <input  class="btn btn-lg btn-primary rounded-pill hover-top" accept=".xlsx" type="file" id="fileUpload" />
-           
-               
-            </div>
+              </div>
           </div>
         </div>
       </section>
@@ -83,7 +81,7 @@
           <div class="row">
             <div class="row">
               <div class="col-12 mx-auto align-items-center text-center">
-                <h6 class="fw-bold fs-4 display-3 lh-sm">Danh sách nhân viên</h6> 
+                <h6 class="fw-bold fs-4 display-3 lh-sm">Danh sách học viên</h6> 
               </div> 
             </div>
             <div class="row align-items-center justify-content-center justify-content-lg-around" >
@@ -110,14 +108,32 @@
         </section>
         <!-- <section> close ============================-->
       <!-- ============================================-->
+       <!-- <section> begin ============================-->
+        <section class="py-7"> 
+          <div class="container">
+            <div class="row align-items-center mb-6">
+              <div class="col-md-5 col-lg-4 offset-lg-1">
+                <h1 class="fw-bold lh-base" style="font-size: 60pt;" id="NumberRanShow">00</h1>
+                <h1 class="fw-bold lh-base" style="font-size: 60pt;" id="NumberRan">00</h1>
+              </div>
+              <div class="col-md-6 col-lg-5 offset-lg-1 border-start py-5 ps-5">
+                <button class="btn btn-lg btn-primary rounded-pill hover-top" id="start" role="button">Quay</a>
+                <button class="btn btn-lg btn-primary rounded-pill hover-top" id="Find" role="button">Dừng</a>
+              </div>
+            </div> 
+          </div>
+          <!-- end of .container-->
+  
+        </section>
+        <!-- <section> close ============================-->
       <!-- <section> begin ============================-->
-      <section class="py-2">
+      <section class="py-1">
 
         <div class="container">
-          <div class="row">
-            <div class="col-12 mx-auto align-items-center text-center">
-              <button class="btn btn-lg btn-primary rounded-pill hover-top" id="Find" role="button">Find</a>
-            </div>
+          <div class="row"> 
+              <div class="col-12 mx-auto align-items-center text-center">
+                  <h2 id="NameOut"></h1>
+              </div>  
           </div> 
         </div>
         <!-- end of .container-->
@@ -162,10 +178,7 @@
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
-
-
-
-
+ 
     <!-- ===============================================-->
     <!--    JavaScripts-->
     <!-- ===============================================-->

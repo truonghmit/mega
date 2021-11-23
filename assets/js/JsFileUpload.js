@@ -97,7 +97,14 @@ var Tables={
               { 'data': 'PHONGHO/CHINHANHKPP' },
               { 'data': 'BOPHANHO/TTKDKPP' },
               { 'data': 'Email' }, 
-              ]
+              ],
+              dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    'csvHtml5',
+                    'pdfHtml5'
+                ]
           });
     },
     tableInSetData:function(data){
@@ -112,8 +119,20 @@ var Tables={
     },
     
 }
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
+function pad(d) {
+    return (d < 10) ? '0' + d.toString() : d.toString();
+}
+  
+
 $(document).ready(function() {
-    
+    $('#NumberRanShow').attr("hidden", true);
+    $('#NumberRan').attr("hidden", false);
+    $('#start').attr("hidden", false);
+    $('#Find').attr("hidden", true);
+
     $('#fileUpload').change(function(evt) {  
         var files = evt.target.files; 
         var xl2json = new ExcelToJSON();
@@ -121,14 +140,23 @@ $(document).ready(function() {
     });
     Tables.init();
     
-    $('#Find').click(function(){
+    $('#Find').click(function(){ 
         if(ObjNhanVien!=null && ObjNhanVien.length>1){  
+            $('#NumberRanShow').attr("hidden", true);
+            $('#NumberRan').attr("hidden", false);
+            $('#start').attr("hidden", false);
+            $('#Find').attr("hidden", true);
             var result = ObjNhanVienIn[Math.floor(Math.random()*ObjNhanVienIn.length)];
             const index = ObjNhanVienIn.indexOf(result);
-            ObjNhanVienIn.splice(index, 1);
+            $('#NumberRan').html(pad(Number(result.STT))) 
+            var NameOut = result.STT + ' - ' + result.MaNV + ' - '+ result.HOVATEN;
+            $('#NameOut').html(NameOut);
+
+
+            ObjNhanVienIn.splice(index, 1); 
             result.STT = ObjNhanVienSelect.length +1;
             ObjNhanVienSelect.push(result);
-
+          
             console.log(' - '+result); 
         }
         else{
@@ -138,5 +166,21 @@ $(document).ready(function() {
         
     })
 
-
+    $('#start').click(function(){  
+        $('#NameOut').html('');
+        if(ObjNhanVien!=null && ObjNhanVien.length>1){ 
+             $('#NumberRanShow').attr("hidden", false);
+             $('#NumberRan').attr("hidden", true);
+             $('#start').attr("hidden", true);
+             $('#Find').attr("hidden", false);
+            } 
+        else{
+            alert("Chưa có thông tin Học Viên!");
+        }
+    });
+     
+    setInterval(function(){
+        const rndInt = randomIntFromInterval(1, 50); 
+        $('#NumberRanShow').html(pad(rndInt)) 
+    },100)  
 });
